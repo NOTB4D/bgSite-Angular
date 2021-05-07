@@ -11,6 +11,8 @@ import { SearchService } from './services/search.service';
 import {FormsModule} from "@angular/forms";
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { IletisimComponent } from './components/iletisim/iletisim.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FooterComponent } from './components/footer/footer.component';
     NaviComponent,
     FirstComponent,
     CarouselComponent,
-    FooterComponent
+    FooterComponent,
+    AdminComponent,
+    IletisimComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,10 @@
+
 <div class="btn-group">
- <button id="btnGroupDrop2" (click)="setCurrentCategory(category)"*ngFor="let category of categories" type="button" class="btn btn-secondary dropdown-toggle shadow m-3" data-bs-toggle="dropdown" aria-expanded="false">
+ <button id="btnGroupDrop2" (click)="getSubCategoryById(category.categoryId)" *ngFor="let category of categories" type="button" 
+ class="btn btn-secondary dropdown-toggle shadow m-3" data-bs-toggle="dropdown" aria-expanded="false">
    {{category.categoryName}}
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  <ul  class="dropdown-menu"  aria-labelledby="dropdownMenuButton1">
+    <li *ngFor="let subCategory of subcategories"><a class="dropdown-item">{{subCategory.subCategoryName}}</a></li>
   </ul>
-<h5>{{currentCategory.categoryName}}  sectiniz</h5>
-<!-- <table class="table">
-  <tr *ngFor="let category of categories">
-    <td>{{category.categoryName}}</td>
-  </tr>
-</table> -->
+</div>

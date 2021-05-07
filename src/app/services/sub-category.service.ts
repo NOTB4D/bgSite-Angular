@@ -8,12 +8,16 @@ import { subCategory } from '../models/subCategory';
   providedIn: 'root'
 })
 export class SubCategoryService {
-  apiUrl = "https://localhost:44366/api/SubCategoryConttroller/GetById";
+  apiUrl = "https://localhost:44366/api/";
   constructor(private httpClient:HttpClient) { }
 
-  getSubCategoryById():Observable<listResonseModel<subCategory>>{
-    return this.httpClient.get<listResonseModel<subCategory>>(this.apiUrl);
-    }
-
+  getSubCategoryById(categoryId:number):Observable<listResonseModel<subCategory>>{
+    let newPath=this.apiUrl+"SubCategories/GetByCategoryId?id="+categoryId
+    return this.httpClient.get<listResonseModel<subCategory>>(newPath);
+  }
+getSubCategory():Observable<listResonseModel<subCategory>>{
+  let newPath=this.apiUrl+"SubCategories/Get"
+  return this.httpClient.get<listResonseModel<subCategory>>(newPath);
+}
 
 }
