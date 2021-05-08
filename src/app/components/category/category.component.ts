@@ -4,7 +4,6 @@ import { subCategory } from 'src/app/models/subCategory';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { SubCategoryService } from 'src/app/services/sub-category.service';
-import { element } from 'protractor';
 
 
 @Component({
@@ -34,8 +33,7 @@ this.categoryService.getCategory().subscribe(response =>{
 getSubCategoryById(categoryId:number){
   this.subcategoryservice.getSubCategoryById(categoryId).subscribe(response =>{
     this.subcategories = response.data
-    this.dataLoaded = true;
-    console.log(this.subcategories)
+    
   })
 }
 

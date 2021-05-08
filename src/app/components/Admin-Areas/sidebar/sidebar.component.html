@@ -6,6 +6,18 @@
       -moz-user-select: none;
       user-select: none;
     }
+    body {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  height: -webkit-fill-available;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+body > * {
+  flex-shrink: 0;
+  min-height: -webkit-fill-available;
+}
 
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
@@ -13,7 +25,6 @@
       }
     }
   </style>
-
 
 
 
@@ -95,6 +106,49 @@
         </div>
       </li>
       <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#product-collapse" aria-expanded="false">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+          Ürünler
+        </button>
+        <div class="collapse" id="product-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Ürün Ekle</a></li>
+            <li><a href="#" class="link-dark rounded">Ürün Güncelle</a></li>
+            <li><a href="#" class="link-dark rounded">Ürün sil</a></li>
+            <li><a href="#" class="link-dark rounded">Tüm Ürünler</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="false">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+          Kategoriler
+        </button>
+        <div class="collapse" id="category-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Kategori Ekle</a></li>
+            <li><a href="#" class="link-dark rounded">Kategori Güncelle</a></li>
+            <li><a href="#" class="link-dark rounded">Kategori sil</a></li>
+            <li><a href="#" class="link-dark rounded">Alt Kategori Ekle</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#brand-collapse" aria-expanded="false">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+          Markalar
+        </button>
+        <div class="collapse" id="brand-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a routerLink="/admin/brand-add" class="link-dark rounded">Marka Ekle</a></li>
+            <li><a href="#" class="link-dark rounded">Marka Güncelle</a></li>
+            <li><a href="#" class="link-dark rounded">Marka Sil</a></li>
+            <li><a href="#" class="link-dark rounded">Marklar</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
           Dashboard
@@ -110,15 +164,27 @@
       </li>
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-            <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-          Orders
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+          Siparişler
         </button>
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">New</a></li>
-            <li><a href="#" class="link-dark rounded">Processed</a></li>
-            <li><a href="#" class="link-dark rounded">Shipped</a></li>
-            <li><a href="#" class="link-dark rounded">Returned</a></li>
+            <li><a href="#" class="link-dark rounded">Yeni Sipariş</a></li>
+            <li><a href="#" class="link-dark rounded">Tüm Siparişler</a></li>
+            <li><a href="#" class="link-dark rounded">TamamLanan Siparişler</a></li>
+            <li><a href="#" class="link-dark rounded">İptal Edilenler</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#customer-collapse" aria-expanded="false">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+          Müşteriler
+        </button>
+        <div class="collapse" id="customer-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Müşteriler</a></li>
+            
           </ul>
         </div>
       </li>
@@ -126,7 +192,7 @@
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          Account
+          Kullanıcı
         </button>
         <div class="collapse" id="account-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -141,3 +207,4 @@
   </div>
   
         <script src="sidebars.js"></script>
+

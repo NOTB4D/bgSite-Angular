@@ -11,8 +11,10 @@ import { SearchService } from './services/search.service';
 import {FormsModule} from "@angular/forms";
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent } from './components/Admin-Areas/admin/admin.component';
 import { IletisimComponent } from './components/iletisim/iletisim.component';
+import { SidebarComponent } from './components/Admin-Areas/sidebar/sidebar.component';
+import { BrandAddComponent } from './components/Admin-Areas/brand-add/brand-add.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { IletisimComponent } from './components/iletisim/iletisim.component';
     CarouselComponent,
     FooterComponent,
     AdminComponent,
-    IletisimComponent
+    IletisimComponent,
+    SidebarComponent,
+    BrandAddComponent
   ],
   imports: [
     BrowserModule,
