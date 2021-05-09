@@ -21,6 +21,7 @@ dataLoaded = false;
 
   ngOnInit(): void {
    this.getCategory();
+   
   
   }
 
@@ -36,6 +37,8 @@ getSubCategoryById(categoryId:number){
     
   })
 }
+
+
 
 
 

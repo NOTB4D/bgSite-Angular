@@ -3,16 +3,18 @@
         <app-sidebar></app-sidebar>
     </div> 
     
-    <div class="col-md-6 ">
-       <div class="col-offset-md-3">
-        <div class="card text-center mt-3">
+    <div class="col align-self-center ">
+        <div class="card  offset-md-3"  style="width: 360px; " >
+        <div class="card text-center ">
             <div class="card-header">
               Marka Ekle
             </div>
             <div class="card-body">
-                <label for="exampleFormControlInput1" class="form-label">Marka Adı</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-                <a href="#" class="btn btn-secondary mt-3">Markayı Ekle</a>
+                <form [formGroup]="brandAddForm">
+                <label for="brandName" class="form-label">Marka Adı</label>
+                <input type="text" class="form-control" id="brandName" formControlName="brandName" placeholder="">
+                <a (click)="Addbrand()" class="btn btn-secondary mt-3">Markayı Ekle</a>
+            </form>
             </div>
           </div>
         </div>

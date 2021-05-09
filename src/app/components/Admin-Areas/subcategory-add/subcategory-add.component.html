@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-3">
+        <app-sidebar></app-sidebar>
+    </div> 
+    
+
+
+    <div class="col align-self-center ">
+        <div class="card  offset-md-3"  style="width: 360px; " >
+        <div class="card text-center">
+            <div class="card-header">
+             Alt Kategory Ekle
+            </div>
+            <div class="card-body">
+                <form [formGroup]="subcategoryAddForm">
+                    <label for="categoryId" class="form-label mt-3">Lütfen Bir Kategori Seciniz</label>
+                    <select class="form-select" formControlName="categoryId"  aria-label="Default select example">
+                        <option *ngFor="let category of categories"  [ngValue]="category.categoryId">{{category.categoryName}}</option>
+                    </select>
+                <label for="subCategoryName" class="form-label mt-3">AltKategory Adı</label>
+                <input type="text" class="form-control" id="subCategoryName"   formControlName="subCategoryName" placeholder="">
+                <a (click)="addSubcategory()" class="btn btn-secondary mt-3">Alt Kategori Ekle</a>
+            </form>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
