@@ -4,7 +4,7 @@
  class="btn btn-secondary dropdown-toggle shadow m-3" data-bs-toggle="dropdown" aria-expanded="false">
    {{category.categoryName}}
   </button>
-  <ul  class="dropdown-menu"  aria-labelledby="dropdownMenuButton1">
-    <li *ngFor="let subCategory of subcategories"><a class="dropdown-item">{{subCategory.subCategoryName}}</a></li>
+  <ul  class="dropdown-menu" *ngIf="dataLoaded==true" aria-labelledby="dropdownMenuButton1">
+    <li *ngFor="let subCategory of subcategories"  ><a class="dropdown-item">{{subCategory.subCategoryName}}</a></li>
   </ul>
 </div>

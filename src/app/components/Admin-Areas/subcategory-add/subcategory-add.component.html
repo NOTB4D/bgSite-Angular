@@ -14,8 +14,8 @@
             <div class="card-body">
                 <form [formGroup]="subcategoryAddForm">
                     <label for="categoryId" class="form-label mt-3">Lütfen Bir Kategori Seciniz</label>
-                    <select class="form-select" formControlName="categoryId"  aria-label="Default select example">
-                        <option *ngFor="let category of categories"  [ngValue]="category.categoryId">{{category.categoryName}}</option>
+                    <select class="form-select" formControlName="categoryId" aria-label="Default select example" placeholder="eser">
+                        <option *ngFor="let category of categories"  [ngValue]="category.categoryId" selected>{{category.categoryName}}</option>
                     </select>
                 <label for="subCategoryName" class="form-label mt-3">AltKategory Adı</label>
                 <input type="text" class="form-control" id="subCategoryName"   formControlName="subCategoryName" placeholder="">

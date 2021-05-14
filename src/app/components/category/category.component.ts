@@ -22,18 +22,21 @@ dataLoaded = false;
   ngOnInit(): void {
    this.getCategory();
    
+   
   
   }
 
 getCategory(){
 this.categoryService.getCategory().subscribe(response =>{
   this.categories=response.data
+  this.dataLoaded = true;
 })
 }
 
 getSubCategoryById(categoryId:number){
   this.subcategoryservice.getSubCategoryById(categoryId).subscribe(response =>{
     this.subcategories = response.data
+    this.dataLoaded = true;
     
   })
 }

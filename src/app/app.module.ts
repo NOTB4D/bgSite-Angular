@@ -18,6 +18,9 @@ import { BrandAddComponent } from './components/Admin-Areas/brand-add/brand-add.
 import { CategoryAddComponent } from './components/Admin-Areas/category-add/category-add.component';
 import { ProductAddComponent } from './components/Admin-Areas/product-add/product-add.component';
 import { SubcategoryAddComponent } from './components/Admin-Areas/subcategory-add/subcategory-add.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule} from 'ngx-toastr';
+import { CategoryupdateComponent } from './components/Admin-Areas/categoryupdate/categoryupdate.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +37,18 @@ import { SubcategoryAddComponent } from './components/Admin-Areas/subcategory-ad
     BrandAddComponent,
     CategoryAddComponent,
     ProductAddComponent,
-    SubcategoryAddComponent
+    SubcategoryAddComponent,
+    CategoryupdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ToastrModule.forRoot({
+      positionClass : "toast-bottom-right"
+    }),
+    BrowserAnimationsModule,
     ReactiveFormsModule
   ],
   providers: [
