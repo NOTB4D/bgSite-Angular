@@ -21,6 +21,8 @@ import { SubcategoryAddComponent } from './components/Admin-Areas/subcategory-ad
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule} from 'ngx-toastr';
 import { CategoryupdateComponent } from './components/Admin-Areas/categoryupdate/categoryupdate.component';
+import { CategorylistComponent } from './components/Admin-Areas/categorylist/categorylist.component';
+import { BrandListComponent } from './components/Admin-Areas/brand-list/brand-list.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CategoryupdateComponent } from './components/Admin-Areas/categoryupdate
     CategoryAddComponent,
     ProductAddComponent,
     SubcategoryAddComponent,
-    CategoryupdateComponent
+    CategoryupdateComponent,
+    CategorylistComponent,
+    BrandListComponent
   ],
   imports: [
     BrowserModule,

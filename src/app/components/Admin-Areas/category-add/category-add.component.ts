@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategoryAddComponent implements OnInit {
   categoryAddForm:FormGroup
-  constructor(private categoryService:CategoryService, private formBuilder:FormBuilder) { }
+  constructor(private categoryService:CategoryService, 
+    private formBuilder:FormBuilder,
+    private taostrservice:ToastrService) { }
 
   ngOnInit(): void {
     this.creatcategoryaddform();
@@ -23,8 +26,9 @@ export class CategoryAddComponent implements OnInit {
   AddCategory(){
     if(this.categoryAddForm.valid){
       let categoryModel = Object.assign(this.categoryAddForm.value);
-      this.categoryService.AddCategory(categoryModel).subscribe( Response =>{
-        console.log(Response)
+      this.categoryService.AddCategory(categoryModel).subscribe( response =>{
+        this.taostrservice.success(response.message,"Ekleme işlemi başarılı");
+        this.ngOnInit();
       })
     }
   }

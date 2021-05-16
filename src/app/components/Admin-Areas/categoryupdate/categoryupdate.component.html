@@ -2,7 +2,23 @@
     <div class="col-md-3">
         <app-sidebar></app-sidebar>
     </div> 
-     <div clas =" col-md-6">
+    
 
-     </div>
-</div>    
+    <div class="col align-self-center ">
+        <div class="card  offset-md-3"  style="width: 360px; " >
+        <div class="card text-center">
+            <div class="card-header">
+              Kategory Güncelle
+            </div>
+            <div class="card-body">
+                <form  [formGroup]="UpdateForm">
+                    <input type="text" class="form-control" formControlName="categoryId" placeholder="{{category.categoryId}}" >
+                <label  class="form-label" >Kategory Adı</label>
+                <input type="text" class="form-control" formControlName="categoryName" placeholder="{{category.categoryName}}" >
+                <a (click)="updateCategory()" class="btn btn-secondary mt-3">Kategoriyi Güncelle</a>
+            </form>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

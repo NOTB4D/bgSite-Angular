@@ -1,10 +1,10 @@
 
 <div class="btn-group">
- <button id="btnGroupDrop2" (click)="getSubCategoryById(category.categoryId)" *ngFor="let category of categories" type="button" 
+ <button id="btnGroupDrop2"  (click)="getSubCategoryById(category.categoryId)" *ngFor="let category of categories" type="button" 
  class="btn btn-secondary dropdown-toggle shadow m-3" data-bs-toggle="dropdown" aria-expanded="false">
    {{category.categoryName}}
   </button>
   <ul  class="dropdown-menu" *ngIf="dataLoaded==true" aria-labelledby="dropdownMenuButton1">
-    <li *ngFor="let subCategory of subcategories"  ><a class="dropdown-item">{{subCategory.subCategoryName}}</a></li>
+    <li *ngFor="let subCategory of subcategories" routerLink="/product/{{subCategory.subCategoryId}}" ><a class="dropdown-item">{{subCategory.subCategoryName}}</a></li>
   </ul>
 </div>

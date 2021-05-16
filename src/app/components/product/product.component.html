@@ -1,3 +1,31 @@
-
+<div class="container">
 <app-navi></app-navi>
 <app-category></app-category>
+<div class="container2">
+    <div class="row row-cols- row-cols-md-3 mb-3 text-center">
+
+        <div class="col"*ngFor="let product of productdetails" >
+                <div class=" card m-3 shadow"  >
+                    <div class=" card-header">
+                        <h5>{{product.productName}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <h5>ürün resmı</h5>
+                        <img class="img-fluid" src="{{imageBasePath}}{{product.productImage}}">
+                    </div>
+                    <div class="card-footer text-left ">
+                        <h5>Urun Fiyatı: {{product.unitPrice}}</h5>
+                            <button  class="btn btn-dark">
+                                <span class="fa fa-shopping-cart"></span>   Sepete ekle
+                            </button>
+                    </div>
+                </div>
+            </div>
+
+       
+
+    </div>
+
+</div>
+</div>
+

@@ -1,0 +1,33 @@
+
+<div class="row">
+    <div class="col-md-3">
+        <app-sidebar></app-sidebar>
+    </div> 
+    
+
+    <div class="col-md-6 mb-6">
+        <table class="table caption-top mb-3">
+            
+            <thead>
+              <tr>
+               
+                <th class="col-md-3">Marka Adı</th>
+                <th class="col-md-1"></th>
+                <th class="col-md-1"></th>
+             </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let brand of brands">
+                
+                <td>{{brand.brandName}}</td>
+                <td><button 
+                    type="button" class="btn btn-secondary">Güncelle</button></td>
+                <td><button (click)="deleteBrand(brand.brandId)"
+                      type="button" class="btn btn-secondary">Sil</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+           
+    </div>
+</div>

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
+import { productdetails } from 'src/app/models/productdetails';
 import { ProductService } from 'src/app/services/product.service';
 import { SearchService } from 'src/app/services/search.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product',
@@ -11,10 +15,23 @@ import { SearchService } from 'src/app/services/search.service';
 export class ProductComponent implements OnInit {
   subTitle:string = "";
   products:Product[]=[];
-  constructor(private searchService:SearchService,private productservice:ProductService) { }
+  productdetails:productdetails[]=[];
+  imageBasePath = environment.baseUrl;
+  defaultImg="/images/default.jpg"
+
+  constructor(private searchService:SearchService,
+    private productservice:ProductService,
+    private toastrservice:ToastrService,
+    private activatedRoute:ActivatedRoute,) { }
 
   ngOnInit(): void {
-    this.getProduct();
+    this.activatedRoute.params.subscribe(params=>{
+      if(params["subcategoryId"]){
+        this.getProductBysubcategoryId(params["subcategoryId"])
+        
+      }
+    })
+  
   }
 
   getProduct(){
@@ -22,6 +39,14 @@ export class ProductComponent implements OnInit {
       this.products=response.data
     })
     }
+
+
+    getProductBysubcategoryId(subCategoryId:number){
+    this.productservice.getProductBysubcategoryId(subCategoryId).subscribe(response=>{
+      this.productdetails=response.data;
+      console.log(response.data)
+    })
+  }
 
   get filterText():string{
     return this.searchService.filterData;
@@ -35,6 +60,7 @@ export class ProductComponent implements OnInit {
     return (filterData.length > 0)?"Search results for \"" + filterData + "\"":this.subTitle;
   }
 
+  
   
 
 }

@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-3">
+        <app-sidebar></app-sidebar>
+    </div> 
+    
+
+    <div class="col-md-6 mb-6">
+        <table class="table caption-top mb-3">
+            
+            <thead>
+              <tr>
+               
+                <th class="col-md-3">Kategori Adı</th>
+                <th class="col-md-1"></th>
+                <th class="col-md-1"></th>
+             </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categories">
+                
+                <td>{{category.categoryName}}</td>
+                <td><button routerLink="/admin/category-update/{{category.categoryId}}"
+                    type="button" class="btn btn-secondary">Güncelle</button></td>
+                <td><button (click)="deleteCategory(category.categoryId)"
+                      type="button" class="btn btn-secondary">Sil</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+           
+    </div>
+</div>
