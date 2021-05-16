@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
-import { productdetails } from 'src/app/models/productdetails';
+
+import { productImage } from 'src/app/models/productImage';
 import { ProductService } from 'src/app/services/product.service';
 import { SearchService } from 'src/app/services/search.service';
 import { environment } from 'src/environments/environment';
@@ -15,8 +16,8 @@ import { environment } from 'src/environments/environment';
 export class ProductComponent implements OnInit {
   subTitle:string = "";
   products:Product[]=[];
-  productdetails:productdetails[]=[];
-  imageBasePath = environment.baseUrl;
+  productImage:productImage[]=[];
+  imageBasePath = environment.imageUrl;
   defaultImg="/images/default.jpg"
 
   constructor(private searchService:SearchService,
@@ -43,7 +44,7 @@ export class ProductComponent implements OnInit {
 
     getProductBysubcategoryId(subCategoryId:number){
     this.productservice.getProductBysubcategoryId(subCategoryId).subscribe(response=>{
-      this.productdetails=response.data;
+      this.productImage=response.data;
       console.log(response.data)
     })
   }

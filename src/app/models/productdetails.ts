@@ -9,6 +9,6 @@ export interface productdetails{
     brandName:string;
     categoryName:string;
     subcategoryName:string;
-    productImage:string[];
+    productImages:string[];
 
 }

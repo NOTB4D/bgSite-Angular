@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { listResponseModel } from '../models/listResponModel';
 import { Product } from '../models/product';
 import { productdetails } from '../models/productdetails';
+import { productImage } from '../models/productImage';
 import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
@@ -24,8 +25,8 @@ export class ProductService {
      return this.httpClient.post<ResponseModel>(newPath,product);
    } 
 
-   getProductBysubcategoryId(subcategoryId:number):Observable<listResponseModel<productdetails>>{
-     let newPath = this.apiUrl+"Products/getproductDetailsBySubcategory?Id="+subcategoryId
-     return this.httpClient.get<listResponseModel<productdetails>>(newPath)
+   getProductBysubcategoryId(subcategoryId:number):Observable<listResponseModel<productImage>>{
+     let newPath = this.apiUrl+"Products/getproductImageBySubcategory?Id="+subcategoryId
+     return this.httpClient.get<listResponseModel<productImage>>(newPath)
    }
 }
