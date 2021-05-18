@@ -9,12 +9,13 @@
                     <div class=" card-header">
                         <h5>{{product.productName}}</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" >
                         <h5>ürün resmı</h5>
-                        <img class="img-fluid" src="{{imageBasePath}}{{product.productImage}}">
+                        <img class="img-fluid" src="{{imageBasePath}}{{product.productImage}}"  routerLink="/productdetails/{{product.productId}}">
                     </div>
                     <div class="card-footer text-left ">
                         <h5>Urun Fiyatı: {{product.unitPrice}}</h5>
+                        <h5>product Id:{{product.productId}}</h5>
                             <button  class="btn btn-dark">
                                 <span class="fa fa-shopping-cart"></span>   Sepete ekle
                             </button>

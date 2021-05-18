@@ -11,6 +11,7 @@ import { SubcategoryAddComponent } from './components/Admin-Areas/subcategory-ad
 import { FirstComponent } from './components/first/first.component';
 import { IletisimComponent } from './components/iletisim/iletisim.component';
 import { ProductComponent } from './components/product/product.component';
+import { ProductdetailComponent } from './components/product/productDetail/productdetail/productdetail.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
 //HomePage
   {path:"product/:subcategoryId",component:ProductComponent},
   {path:"iletisim", component:IletisimComponent},
-  {path:":categoryId",component:FirstComponent}
+  {path:":categoryId",component:FirstComponent},
+  {path:"productdetails/:productID",component:ProductdetailComponent}
   
 ];
 

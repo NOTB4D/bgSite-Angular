@@ -23,6 +23,7 @@ import { ToastrModule} from 'ngx-toastr';
 import { CategoryupdateComponent } from './components/Admin-Areas/categoryupdate/categoryupdate.component';
 import { CategorylistComponent } from './components/Admin-Areas/categorylist/categorylist.component';
 import { BrandListComponent } from './components/Admin-Areas/brand-list/brand-list.component';
+import { ProductdetailComponent } from './components/product/productDetail/productdetail/productdetail.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BrandListComponent } from './components/Admin-Areas/brand-list/brand-li
     SubcategoryAddComponent,
     CategoryupdateComponent,
     CategorylistComponent,
-    BrandListComponent
+    BrandListComponent,
+    ProductdetailComponent
   ],
   imports: [
     BrowserModule,

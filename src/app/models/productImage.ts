@@ -1,5 +1,5 @@
 export interface productImage{
-    productID:number;
+    productId:number;
     subCategoryId:number;
     productName:string;
     unitPrice:number;

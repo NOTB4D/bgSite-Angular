@@ -1,5 +1,5 @@
 export interface productdetails{
-    productID:number;
+    productId:number;
     subCategoryId:number;
     productName:string;
     unitsInStock:number;
@@ -7,7 +7,6 @@ export interface productdetails{
     description:string;
     brandId:string;
     brandName:string;
-    categoryName:string;
     subcategoryName:string;
     productImages:string[];
 

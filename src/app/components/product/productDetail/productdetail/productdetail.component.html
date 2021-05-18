@@ -1,0 +1,79 @@
+<div class="container">
+  <app-navi></app-navi>
+  <app-category></app-category>
+  <div class="container2">
+    <div class="row">
+      <div class="col-md-5">
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div
+              class="carousel-item"
+              *ngFor="let image of Images; index as i; first as firstImage"
+              [ngClass]="{ active: firstImage }"
+              class="carousel-item"
+            >
+              <img
+                [src]="imageBasePath + image"
+                style="max-width: 60%"
+                class="d-block w-100"
+              />
+            </div>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" style="border: 0px solid gray">
+        <h3>{{ product.productName }}</h3>
+        <h6 class="title-price"><small>Ürün Fiyatı</small></h6>
+        <h3 style="margin-top: 0px">{{ product.unitPrice }}.00 TL</h3>
+        <div class="section" style="padding-bottom: 20px">
+          <button class="btn btn-secondary">
+            <span
+              class="fa fa-shopping-cart"
+              style="margin-right: 20px"
+              aria-hidden="true"
+              >Sepete Ekle</span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-9">
+    <div style="width: 100%; border-top: 1px solid silver">
+      <p style="padding: 15px">
+        <small>
+          {{ product.description }}
+        </small>
+      </p>
+    </div>
+  </div>
+</div>
