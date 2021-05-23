@@ -1,6 +1,7 @@
+import { Product } from "./product";
 import { productImage } from "./productImage";
 
 export class CartItem{
-    productImage:productImage;
+    product:Product;
     quantity:number;
 }

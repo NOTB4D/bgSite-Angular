@@ -55,7 +55,7 @@
         <h6 class="title-price"><small>Ürün Fiyatı</small></h6>
         <h3 style="margin-top: 0px">{{product.unitPrice}}.00 TL</h3>
         <div class="section" style="padding-bottom: 20px">
-          <button  class="btn btn-secondary">
+          <button (click)="addtoCart(product)" class="btn btn-secondary">
             <i class="bi bi-cart3"></i>Sepete Ekle
           </button>
         </div>

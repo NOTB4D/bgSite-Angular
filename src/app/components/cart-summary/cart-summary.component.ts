@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/cartItem';
+import { Product } from 'src/app/models/product';
 import { productImage } from 'src/app/models/productImage';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -22,7 +23,14 @@ export class CartSummaryComponent implements OnInit {
    this.cartItems=this.cartService.list();
   }
 
-  removeFromCart(productImage:productImage){
-    this.cartService.removeFromCart(productImage);
+  removeFromCart(product:Product){
+    this.cartService.removeFromCart( {
+      productID:product.productID,
+      subCategoryId:product.subCategoryId,
+      productName:product.productName,
+      unitsInStock:product.unitsInStock,
+      unitPrice:product.unitPrice,
+      description:"",
+      brandId:""});
   }
 }

@@ -44,7 +44,21 @@ imageBasePath = environment.imageUrl;
   }
 
   
-
+  addtoCart(product:productdetails){
+    if(product.unitsInStock===0){
+      this.toastrservice.error("Hata","Ürün Stokta Yok")
+    }
+    this.toastrservice.success("Sepete eklendi",product.productName)
+    this.cartService.addtoCart({
+      productID:product.productId,
+    subCategoryId:product.subCategoryId,
+    productName:product.productName,
+    unitsInStock:product.unitsInStock,
+    unitPrice:product.unitPrice,
+    description:"",
+    brandId:""
+    })
+  }
 
 
 }
