@@ -58,7 +58,7 @@ addProduct(){
   if(this.productAddForm.valid){
     let productmodel = Object.assign({},this.productAddForm.value);
     this.productservice.addProduct(productmodel).subscribe(response =>{
-      this.toasterservice.success(response.message,"İşleminiz Başarılı");
+      this.toasterservice.success(response.messages,"İşleminiz Başarılı");
     },responseError=>{
       if(responseError.error.Errors.length>0){
         for (let i = 0; i <responseError.error.Errors.length; i++) {

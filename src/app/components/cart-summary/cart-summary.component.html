@@ -1,0 +1,13 @@
+<ul class=" navbar-nav ml-auto">  
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-cart3"><span class="badge text-dark"></span></i>
+      </a>
+      <ul class="dropdown-menu " aria-labelledby="navbarDarkDropdownMenuLink">
+        <li  *ngFor="let cartItem of cartItems" ><a class="dropdown-item">
+          <span class="badge text-dark">{{cartItem.quantity}}</span>{{cartItem.productImage.productName}} <span (click)="removeFromCart(cartItem.productImage)" class="badge bg-dark">Sil</span></a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item">Sepete Git</a></li>
+      </ul>
+    </li>
+</ul>

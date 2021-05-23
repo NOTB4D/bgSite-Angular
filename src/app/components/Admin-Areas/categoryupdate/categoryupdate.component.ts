@@ -42,7 +42,7 @@ export class CategoryupdateComponent implements OnInit {
    if(this.UpdateForm.valid){
      let categoryModel = Object.assign({}, this.UpdateForm.value);
      this.categoryService.updateCategory(categoryModel).subscribe(response =>{
-       this.toastrservice.success(response.message,"Güncelleme işlemi başarılı");
+       this.toastrservice.success(response.messages,"Güncelleme işlemi başarılı");
      })
    }
  }

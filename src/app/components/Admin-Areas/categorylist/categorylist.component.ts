@@ -27,7 +27,7 @@ export class CategorylistComponent implements OnInit {
 
   deleteCategory(id:number){
     this.categoryService.deleteCategory(id).subscribe(response =>{
-      this.taostrservice.success(response.message,"Silme işlemi başarılı");
+      this.taostrservice.success(response.messages,"Silme işlemi başarılı");
       this.ngOnInit();
     })
     

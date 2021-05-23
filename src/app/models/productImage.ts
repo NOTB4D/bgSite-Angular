@@ -4,5 +4,6 @@ export interface productImage{
     productName:string;
     unitPrice:number;
     productImage:string;
+    unitsInStock:number;
 
 }

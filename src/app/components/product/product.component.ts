@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 
 import { productImage } from 'src/app/models/productImage';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { SearchService } from 'src/app/services/search.service';
 import { environment } from 'src/environments/environment';
@@ -23,7 +24,8 @@ export class ProductComponent implements OnInit {
   constructor(private searchService:SearchService,
     private productservice:ProductService,
     private toastrservice:ToastrService,
-    private activatedRoute:ActivatedRoute,) { }
+    private activatedRoute:ActivatedRoute,
+    private cartService:CartService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -59,6 +61,14 @@ export class ProductComponent implements OnInit {
   get searchResultText(){
     let filterData = this.searchService.filterData;
     return (filterData.length > 0)?"Search results for \"" + filterData + "\"":this.subTitle;
+  }
+
+  addtoCart(product:productImage){
+    if(product.unitsInStock===0){
+      this.toastrservice.error("Hata","Ürün Stokta Yok")
+    }
+    this.toastrservice.success("Sepete eklendi",product.productName)
+    this.cartService.addtoCart(product)
   }
 
   

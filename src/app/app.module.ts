@@ -24,6 +24,8 @@ import { CategoryupdateComponent } from './components/Admin-Areas/categoryupdate
 import { CategorylistComponent } from './components/Admin-Areas/categorylist/categorylist.component';
 import { BrandListComponent } from './components/Admin-Areas/brand-list/brand-list.component';
 import { ProductdetailComponent } from './components/product/productDetail/productdetail/productdetail.component';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { ProductdetailComponent } from './components/product/productDetail/produ
     CategoryupdateComponent,
     CategorylistComponent,
     BrandListComponent,
-    ProductdetailComponent
+    ProductdetailComponent,
+    CartSummaryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

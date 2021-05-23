@@ -15,13 +15,13 @@
                     </div>
                     <div class="card-footer text-left ">
                         <h5>Urun Fiyatı: {{product.unitPrice}}</h5>
-                        <h5>product Id:{{product.productId}}</h5>
-                            <button  class="btn btn-dark">
-                                <span class="fa fa-shopping-cart"></span>   Sepete ekle
+                        <h5>urun stok :{{product.unitsInStock}}</h5>
+                            <button  (click)="addtoCart(product)" class="btn btn-dark">
+                                <i class="bi bi-cart-fill"></i>  Sepete ekle
                             </button>
                     </div>
                 </div>
-            </div>
+        </div>
 
        
 

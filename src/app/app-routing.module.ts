@@ -10,13 +10,14 @@ import { ProductAddComponent } from './components/Admin-Areas/product-add/produc
 import { SubcategoryAddComponent } from './components/Admin-Areas/subcategory-add/subcategory-add.component';
 import { FirstComponent } from './components/first/first.component';
 import { IletisimComponent } from './components/iletisim/iletisim.component';
+import { LoginComponent } from './components/login/login.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductdetailComponent } from './components/product/productDetail/productdetail/productdetail.component';
 
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:FirstComponent},
-
+  {path:"login",component:LoginComponent},
 //AdminBase
   {path:"admin", component:AdminComponent},
   //Add
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path:"iletisim", component:IletisimComponent},
   {path:":categoryId",component:FirstComponent},
   {path:"productdetails/:productID",component:ProductdetailComponent}
+  
   
 ];
 

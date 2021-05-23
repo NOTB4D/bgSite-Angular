@@ -32,7 +32,7 @@ getBrandId(id:number){
 }
 deleteBrand(id:number){
   this.brandservice.deleteBrand(id).subscribe(response =>{
-    this.toasterservice.success(response.message,"Silme İşlemi Başarılı");
+    this.toasterservice.success(response.messages,"Silme İşlemi Başarılı");
     this.ngOnInit();
   })
 }

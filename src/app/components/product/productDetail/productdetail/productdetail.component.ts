@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { productdetails } from 'src/app/models/productdetails';
+import { productImage } from 'src/app/models/productImage';
+import { CartService } from 'src/app/services/cart.service';
 
 import { ProductService } from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
@@ -19,7 +22,9 @@ imageBasePath = environment.imageUrl;
 
 
   constructor(private productsevice:ProductService,
-    private activatedRoute:ActivatedRoute) { }
+    private toastrservice:ToastrService,
+    private activatedRoute:ActivatedRoute,
+    private cartService:CartService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -34,9 +39,11 @@ imageBasePath = environment.imageUrl;
       this.productdetails = response.data;
       this.product = response.data[0];
       this.Images = this.product.productImages
-      console.log
+      
     });
   }
+
+  
 
 
 

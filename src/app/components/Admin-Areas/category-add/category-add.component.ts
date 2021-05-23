@@ -27,7 +27,7 @@ export class CategoryAddComponent implements OnInit {
     if(this.categoryAddForm.valid){
       let categoryModel = Object.assign(this.categoryAddForm.value);
       this.categoryService.AddCategory(categoryModel).subscribe( response =>{
-        this.taostrservice.success(response.message,"Ekleme işlemi başarılı");
+        this.taostrservice.success(response.messages);
         this.ngOnInit();
       })
     }

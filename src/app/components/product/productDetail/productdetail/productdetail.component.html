@@ -51,17 +51,12 @@
         </div>
       </div>
       <div class="col-md-6" style="border: 0px solid gray">
-        <h3>{{ product.productName }}</h3>
+        <h3>{{product.productName}}</h3>
         <h6 class="title-price"><small>Ürün Fiyatı</small></h6>
-        <h3 style="margin-top: 0px">{{ product.unitPrice }}.00 TL</h3>
+        <h3 style="margin-top: 0px">{{product.unitPrice}}.00 TL</h3>
         <div class="section" style="padding-bottom: 20px">
-          <button class="btn btn-secondary">
-            <span
-              class="fa fa-shopping-cart"
-              style="margin-right: 20px"
-              aria-hidden="true"
-              >Sepete Ekle</span
-            >
+          <button  class="btn btn-secondary">
+            <i class="bi bi-cart3"></i>Sepete Ekle
           </button>
         </div>
       </div>
@@ -70,9 +65,9 @@
   <div class="col-xs-9">
     <div style="width: 100%; border-top: 1px solid silver">
       <p style="padding: 15px">
-        <small>
-          {{ product.description }}
-        </small>
+        
+         {{ product.description }} 
+        
       </p>
     </div>
   </div>
