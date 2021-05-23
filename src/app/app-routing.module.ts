@@ -13,11 +13,13 @@ import { IletisimComponent } from './components/iletisim/iletisim.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductdetailComponent } from './components/product/productDetail/productdetail/productdetail.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:FirstComponent},
   {path:"login",component:LoginComponent},
+  {path:"register",component:RegisterComponent},
 //AdminBase
   {path:"admin", component:AdminComponent},
   //Add

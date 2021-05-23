@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './components/category/category.component';
@@ -26,6 +26,8 @@ import { BrandListComponent } from './components/Admin-Areas/brand-list/brand-li
 import { ProductdetailComponent } from './components/product/productDetail/productdetail/productdetail.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { LoginComponent } from './components/login/login.component';
     BrandListComponent,
     ProductdetailComponent,
     CartSummaryComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule
   ],
   providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
     SearchService
   ],
   bootstrap: [AppComponent]
