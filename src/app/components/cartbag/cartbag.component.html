@@ -1,0 +1,57 @@
+<div class="container">
+    <app-navi></app-navi>
+    
+    <div>
+       <app-category></app-category>
+    </div>
+       
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12 col-lg-8">
+                <div class="items">
+                    <table class="table">
+                    <tbody>
+                        
+                            <tr *ngFor="let cartItem of cartItems">
+        
+        
+                                <td>{{cartItem.product.productName}}</td>
+                                <td>{{cartItem.product.unitPrice}}</td>
+                                <td>
+                                    <i class="bi bi-plus-circle"></i>
+                                    {{cartItem.quantity}}
+                                    <i class="bi bi-dash-circle"></i>
+        
+                                </td>
+                                <td> {{cartItem.quantity*cartItem.product.unitPrice}} <i class="fa fa-try" aria-hidden="true"></i></td>
+        
+                            </tr>
+                        <tr>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </tbody>
+        
+                </table>
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-3 ">
+                <div class="summary">
+                    <h3>Sipariş Özeti</h3>
+                    <div class="summary-item"><span class="text">Subtotal</span><span class="price">$360</span></div>
+                    <div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block">Alışverişi Tamamla</button>
+                </div>
+            </div>
+        </div> 
+    </div>
+       
+</div>
+
+
+   
+
+
+
