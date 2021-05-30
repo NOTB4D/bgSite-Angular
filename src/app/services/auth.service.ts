@@ -15,7 +15,7 @@ export class AuthService {
   constructor(private httpClient:HttpClient) { }
 
   login(loginModel: LoginModel){
-   return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"Auth/login",loginModel).subscribe
+   return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"Auth/login",loginModel)
   }
 
   register(registerModel:RegisterModel){
