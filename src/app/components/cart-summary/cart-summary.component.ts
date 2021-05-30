@@ -23,7 +23,6 @@ export class CartSummaryComponent implements OnInit {
 
   getcart(){
    this.cartItems=this.cartService.list();
-   console.log(this.cartItems)
   }
 
   removeFromCart(product:Product){

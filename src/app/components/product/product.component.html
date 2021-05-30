@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" *ngIf="products" >
 <app-navi></app-navi>
 <app-category></app-category>
-<div class="container2">
+<div class="container2" >
     <div class="row row-cols- row-cols-md-3 mb-3 text-center">
 
         <div class="col"*ngFor="let product of productImage" >

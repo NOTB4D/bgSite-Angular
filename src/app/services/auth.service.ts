@@ -11,15 +11,15 @@ import { TokenModel } from '../models/tokenModel';
 })
 export class AuthService {
 
-  apiUrl = "https://localhost:44366/api/Auth/";
+  apiUrl = "https://localhost:44366/api/";
   constructor(private httpClient:HttpClient) { }
 
   login(loginModel: LoginModel){
-   return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login",loginModel)
+   return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"Auth/login",loginModel).subscribe
   }
 
   register(registerModel:RegisterModel){
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"Auth/register",registerModel)
   }
   isAuthenticated(){
     if(localStorage.getItem("token")){
