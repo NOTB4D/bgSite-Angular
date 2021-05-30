@@ -8,6 +8,7 @@ import { CategorylistComponent } from './components/Admin-Areas/categorylist/cat
 import { CategoryupdateComponent } from './components/Admin-Areas/categoryupdate/categoryupdate.component';
 import { ProductAddComponent } from './components/Admin-Areas/product-add/product-add.component';
 import { SubcategoryAddComponent } from './components/Admin-Areas/subcategory-add/subcategory-add.component';
+import { CartbagComponent } from './components/cartbag/cartbag.component';
 import { FirstComponent } from './components/first/first.component';
 import { IletisimComponent } from './components/iletisim/iletisim.component';
 import { LoginComponent } from './components/login/login.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"",pathMatch:"full",component:FirstComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
+  
 //AdminBase
   {path:"admin", component:AdminComponent},
   //Add
@@ -27,6 +29,7 @@ const routes: Routes = [
   {path:"admin/category-add",component:CategoryAddComponent},
   {path:"admin/product-add",component:ProductAddComponent},
   {path:"admin/subcategory-add",component:SubcategoryAddComponent},
+  {path:"Cart",component:CartbagComponent},
   //Update
   {path:"admin/category-update/:categoryId",component:CategoryupdateComponent},
   {path:"admin/category-List",component:CategorylistComponent},
@@ -35,7 +38,8 @@ const routes: Routes = [
   {path:"product/:subcategoryId",component:ProductComponent},
   {path:"iletisim", component:IletisimComponent},
   {path:":categoryId",component:FirstComponent},
-  {path:"productdetails/:productID",component:ProductdetailComponent}
+  {path:"productdetails/:productID",component:ProductdetailComponent},
+  
   
   
 ];

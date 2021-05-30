@@ -5,6 +5,6 @@
    {{category.categoryName}}
   </button>
   <ul  class="dropdown-menu" *ngIf="dataLoaded==true" aria-labelledby="dropdownMenuButton1">
-    <li *ngFor="let subCategory of subcategories" routerLink="/product/{{subCategory.subCategoryId}}" ><a class="dropdown-item">{{subCategory.subCategoryName}}</a></li>
+    <li *ngFor="let subCategory of subcategories" routerLink="/product/{{subCategory.subCategoryId}}" ><a class="dropdown-item" type="button">{{subCategory.subCategoryName}}</a></li>
   </ul>
 </div>

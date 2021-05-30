@@ -28,6 +28,8 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
+import { CartbagComponent } from './components/cartbag/cartbag.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { RegisterComponent } from './components/register/register.component';
     ProductdetailComponent,
     CartSummaryComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CartbagComponent
   ],
   imports: [
     BrowserModule,

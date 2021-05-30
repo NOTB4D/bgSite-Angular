@@ -47,7 +47,7 @@ export class ProductComponent implements OnInit {
     getProductBysubcategoryId(subCategoryId:number){
     this.productservice.getProductBysubcategoryId(subCategoryId).subscribe(response=>{
       this.productImage=response.data;
-      console.log(response.data)
+      
     })
   }
 

@@ -4,10 +4,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#"><img [src]="logo"width="40" height="40"></a>
+        <a class="navbar-brand" routerLink=""><img [src]="logo"width="40" height="40"></a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
+            <a class="nav-link active" aria-current="page" routerLink="">Anasayfa</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/iletisim">İletişim</a>
@@ -28,8 +28,8 @@
                 </a>
               </li>
               <li class="nav-item" *ngIf="check==true">
-                <a class="nav-link" (click)="logOut()">
-                  <i class="fa fa-user-plus"></i>
+                <a class="nav-link" type="button" (click)="logOut()">
+                  <i class="bi bi-box-arrow-in-left"></i>
                   Çıkış
                 </a>
               </li>
