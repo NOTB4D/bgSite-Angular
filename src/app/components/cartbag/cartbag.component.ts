@@ -20,16 +20,12 @@ export class CartbagComponent implements OnInit {
     private route:Router) { }
 
   ngOnInit(): void {
-    this.getcart();
-    if(this.cartItems.length===0)
-    {
-      this.route.navigate(['/']);
-    }
+    this.cartItems=JSON.parse(localStorage.getItem('cartItems'));
   }
 
 
   getcart(){
-    this.cartItems=this.cartService.list();
+    
     for(let item of this.cartItems)
     {
       this.subTotal=(item.product.unitPrice*item.quantity);

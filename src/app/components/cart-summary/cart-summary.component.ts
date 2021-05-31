@@ -22,7 +22,8 @@ export class CartSummaryComponent implements OnInit {
   // JSON.parse(localStorage.getItem('cartItems'));
 
   getcart(){
-   this.cartItems=this.cartService.list();
+  //  this.cartItems=this.cartService.list();
+    this.cartItems=JSON.parse(localStorage.getItem('cartItems'));
   }
 
   removeFromCart(product:Product){

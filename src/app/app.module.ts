@@ -29,6 +29,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { CartbagComponent } from './components/cartbag/cartbag.component';
+import { PayComponent } from './components/pay/pay.component';
+
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { CartbagComponent } from './components/cartbag/cartbag.component';
     CartSummaryComponent,
     LoginComponent,
     RegisterComponent,
-    CartbagComponent
+    CartbagComponent,
+    PayComponent,
+    
   ],
   imports: [
     BrowserModule,

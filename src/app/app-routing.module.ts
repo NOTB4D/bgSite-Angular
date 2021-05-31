@@ -12,6 +12,7 @@ import { CartbagComponent } from './components/cartbag/cartbag.component';
 import { FirstComponent } from './components/first/first.component';
 import { IletisimComponent } from './components/iletisim/iletisim.component';
 import { LoginComponent } from './components/login/login.component';
+import { PayComponent } from './components/pay/pay.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductdetailComponent } from './components/product/productDetail/productdetail/productdetail.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:"admin/product-add",component:ProductAddComponent},
   {path:"admin/subcategory-add",component:SubcategoryAddComponent},
   {path:"Cart",component:CartbagComponent},
+  {path:"Pay",component:PayComponent},
   //Update
   {path:"admin/category-update/:categoryId",component:CategoryupdateComponent},
   {path:"admin/category-List",component:CategorylistComponent},
