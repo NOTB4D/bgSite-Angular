@@ -36,5 +36,6 @@ export class CartSummaryComponent implements OnInit {
       description:"",
       brandId:""});
       this.toastrservice.error("Ürün Sepetten Cıkartıldı",product.productName)
+      this.ngOnInit();
   }
 }

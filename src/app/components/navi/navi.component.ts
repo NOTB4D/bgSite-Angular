@@ -1,8 +1,11 @@
+import { UserService } from './../../services/user.service';
+import { User } from './../../models/user';
+import { LocalStorageService } from './../../services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
-import { SearchService } from 'src/app/services/search.service';
+
 
 
 @Component({
@@ -13,27 +16,53 @@ import { SearchService } from 'src/app/services/search.service';
 export class NaviComponent implements OnInit {
 logo:string="assets/image/logo.jpg"
 check:boolean;
-  constructor(private searchService:SearchService,
+email=this.localstorageservice.get("email");
+user:User= new User();
+
+  constructor(
     private authservice:AuthService,
     private toastrservice:ToastrService,
+    private localstorageservice:LocalStorageService,
+    private userservice:UserService,
     private router:Router) { }
 
   ngOnInit(): void {
    this.load();
+   
   }
-  get filterText():string{
-  return this.searchService.filterData;
-  }
-  set filterText (value: string){
-    this.searchService.filterData=value;
-  }
+ 
 load(){
   this.check = this.authservice.isAuthenticated();
+  this.getEmail();
+  this.chechToEmail();
 }
 
   logOut(){
-    localStorage.clear()
+    this.localstorageservice.clean()
     this.toastrservice.success("Çıkış Yaptınız");
     this.router.navigate(["/"]).then(r => window.location.reload())
   }
+
+  chechToEmail(){
+    if(this.localstorageservice.get("email")){
+      return true;
+    }else{
+      return false;
+    }
   }
+getEmail(){
+  if(this.email){
+    this.userservice.getByMail(this.email).subscribe(response=>{
+      this.user=response;
+      this.authservice.getClaims(this.user.Id).subscribe(response=>{
+        if(response.data.name=="Admin"){
+          this.localstorageservice.set("yetki",response.data.name);
+          this.localstorageservice.set("Id",this.user.Id.toString());
+        }
+      })
+    })
+  }
+
+}
+
+}

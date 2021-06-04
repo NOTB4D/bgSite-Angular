@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from"@angular/forms";
 import { Router } from '@angular/router';
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,
     private authService:AuthService,
     private toastrService:ToastrService,
+    private localstorageservice:LocalStorageService,
     private router:Router ) { }
 
   ngOnInit(): void {
@@ -34,7 +36,8 @@ export class LoginComponent implements OnInit {
       let loginModel = Object.assign({},this.loginForm.value)
       this.authService.login(loginModel).subscribe(response =>{
       this.toastrService.success("Sisteme Giriş Yapıldı")
-      localStorage.setItem("token",response.data.token)
+      this.localstorageservice.set("token",response.data.token)
+      this.localstorageservice.set("email",this.loginForm.value.email);
       this.router.navigate(["/"]).then(r => window.location.reload())
       },responseError=>{
         this.toastrService.error(responseError.error);

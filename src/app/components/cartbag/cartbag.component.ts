@@ -21,6 +21,7 @@ export class CartbagComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartItems=JSON.parse(localStorage.getItem('cartItems'));
+    
   }
 
 
@@ -31,10 +32,12 @@ export class CartbagComponent implements OnInit {
       this.subTotal=(item.product.unitPrice*item.quantity);
       this.grandTotal+=this.subTotal;
     }
+    this.ngOnInit();
    }
    removeFromCart(product:Product){
     this.cartService.removeFromCart(product);
       this.toastrservice.error("Ürün Sepetten Cıkartıldı",product.productName)
+      this.ngOnInit();
       if(this.cartItems.length===0)
     {
       this.route.navigate(['/']);
@@ -47,5 +50,6 @@ export class CartbagComponent implements OnInit {
     }
     this.toastrservice.success("Sepete eklendi",product.productName)
     this.cartService.addtoCart(product)
+    this.ngOnInit();
   }
 }

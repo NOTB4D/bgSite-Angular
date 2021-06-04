@@ -1,10 +1,13 @@
+import { listResponseModel } from './../models/listResponModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LoginModel } from '../models/loginModel';
 import { RegisterModel } from '../models/registerModel';
 import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
+import { Claims } from '../models/claims';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +31,10 @@ export class AuthService {
       return false;
     }
   }
+
+  getClaims(Id:number):Observable<SingleResponseModel<Claims>>{
+   let newPath=this.apiUrl+"User/claims?id="+Id
+   return this.httpClient.get<SingleResponseModel<Claims>>(newPath);
+  }
+
 }

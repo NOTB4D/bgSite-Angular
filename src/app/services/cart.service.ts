@@ -1,3 +1,4 @@
+import { LocalStorageService } from './local-storage.service';
 import { Injectable } from '@angular/core';
 import { CartItem } from '../models/cartItem';
 import { CartItems } from '../models/cartItems';
@@ -9,7 +10,7 @@ import { Product } from '../models/product';
 })
 export class CartService {
 
-  constructor() { }
+  constructor(private localstorageservice:LocalStorageService) { }
 
   addtoCart(product:Product){
     let Item = CartItems.find(c => c.product.productID===product.productID);
@@ -22,7 +23,7 @@ export class CartService {
       cartItem.quantity=1;
       CartItems.push(cartItem)
     }
-    localStorage.setItem('cartItems', JSON.stringify(CartItems));
+    this.localstorageservice.set('cartItems', JSON.stringify(CartItems));
   }
 
   removeFromCart(product:Product){
@@ -32,7 +33,7 @@ export class CartService {
     } else{
       CartItems.splice(CartItems.indexOf(item),1); 
     }
-    localStorage.setItem('cartItems', JSON.stringify(CartItems));
+    this.localstorageservice.set('cartItems', JSON.stringify(CartItems));
   }
 
   list():CartItem[]{

@@ -68,6 +68,7 @@ export class ProductComponent implements OnInit {
       this.toastrservice.error("Hata","Ürün Stokta Yok")
     }
     this.toastrservice.success("Sepete eklendi",product.productName)
+    
     this.cartService.addtoCart({
       productID:product.productId,
     subCategoryId:product.subCategoryId,

@@ -31,13 +31,15 @@
                 <a class="nav-link" type="button" (click)="logOut()">
                   <i class="bi bi-box-arrow-in-left"></i>
                   Çıkış
+                  {{this.user.FirstName}}
                 </a>
               </li>
           </ul>
+          
         </ul>
         <app-cart-summary></app-cart-summary>
         <div class="d-flex">
-          <input class="form-control me-2" id= "filtertext" [(ngModel)]="filterText" type="search" placeholder="Ara" aria-label="Search">
+          <input class="form-control me-2" id= "filtertext" type="search" placeholder="Ara" aria-label="Search">
           <button class="btn btn-outline-secondary" type="submit">Ara</button>
       </div>
       </div>
