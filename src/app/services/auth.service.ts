@@ -1,3 +1,4 @@
+import { LocalStorageService } from './local-storage.service';
 import { listResponseModel } from './../models/listResponModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -13,9 +14,10 @@ import { Claims } from '../models/claims';
   providedIn: 'root'
 })
 export class AuthService {
-
+yetki:string;
   apiUrl = "https://localhost:44366/api/";
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient,
+    private localstorageservice:LocalStorageService) { }
 
   login(loginModel: LoginModel){
    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"Auth/login",loginModel)
@@ -32,8 +34,18 @@ export class AuthService {
     }
   }
 
+  isadmin(){
+    this.yetki=this.localstorageservice.get("yetki");
+    if(this.yetki==="Admin"){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
   getClaims(Id:number):Observable<SingleResponseModel<Claims>>{
-   let newPath=this.apiUrl+"User/claims?id="+Id
+   let newPath=this.apiUrl+"User/claim?Id="+Id
    return this.httpClient.get<SingleResponseModel<Claims>>(newPath);
   }
 

@@ -16,8 +16,11 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NaviComponent implements OnInit {
 logo:string="assets/image/logo.jpg"
 check:boolean;
+checkAdmin:boolean;
 email=this.localstorageservice.get("email");
 user:User= new User();
+admin:string;
+
 
   constructor(
     private authservice:AuthService,
@@ -33,6 +36,7 @@ user:User= new User();
  
 load(){
   this.check = this.authservice.isAuthenticated();
+  this.checkAdmin=this.authservice.isadmin();
   this.getEmail();
   this.chechToEmail();
 }
@@ -54,12 +58,14 @@ getEmail(){
   if(this.email){
     this.userservice.getByMail(this.email).subscribe(response=>{
       this.user=response;
-      this.authservice.getClaims(this.user.Id).subscribe(response=>{
-        if(response.data.name=="Admin"){
+      this.authservice.getClaims(this.user.id).subscribe(response=>{
+        if(response){
+          this.admin=response.data.name;
           this.localstorageservice.set("yetki",response.data.name);
-          this.localstorageservice.set("Id",this.user.Id.toString());
+          this.localstorageservice.set("Id",this.user.id.toString());
         }
       })
+      
     })
   }
 

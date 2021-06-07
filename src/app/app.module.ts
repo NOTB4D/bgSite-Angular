@@ -30,6 +30,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { CartbagComponent } from './components/cartbag/cartbag.component';
 import { PayComponent } from './components/pay/pay.component';
+import { ProductImageAddComponent } from './components/Admin-Areas/product-image-add/product-image-add.component';
 
 
 
@@ -58,6 +59,7 @@ import { PayComponent } from './components/pay/pay.component';
     RegisterComponent,
     CartbagComponent,
     PayComponent,
+    ProductImageAddComponent,
     
   ],
   imports: [
@@ -69,7 +71,7 @@ import { PayComponent } from './components/pay/pay.component';
       positionClass : "toast-bottom-right"
     }),
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},

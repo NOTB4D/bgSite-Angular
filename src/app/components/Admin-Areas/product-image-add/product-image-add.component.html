@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-3">
+        <app-sidebar></app-sidebar>
+    </div> 
+    
+    <div class="col align-self-center ">
+        <div class="container-fluid">
+            <br>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header"><h5 class="card-title">Ürün Resimi Ekle</h5></div>
+                <div class="card-body">
+                  <form [formGroup]="imageAddForm" >
+                    <div class="mb-3">
+                      <div class="form-group">
+                        <label>Lütfen Ürün Seçiniz</label>
+                        <select class="form-control" formControlName="productId" name="file">
+                          <option *ngFor="let product of products" [ngValue]="product.productID" >{{product.productName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <div class="form-group">
+                        <div class="form-group">
+                          <input type="file"(change)="addImage($event)" >
+                        </div>
+                      </div>
+                    </div>
+      
+                  </form>
+                </div>
+                <div class="card-footer">
+                  <div class="form-group">
+                    <button class="btn btn-secondary btn-block btn-lg" (click)="submitForm()" >Resmi Ekle</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

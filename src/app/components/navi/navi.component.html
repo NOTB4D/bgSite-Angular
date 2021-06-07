@@ -27,13 +27,27 @@
                   Kayıt Ol
                 </a>
               </li>
-              <li class="nav-item" *ngIf="check==true">
-                <a class="nav-link" type="button" (click)="logOut()">
-                  <i class="bi bi-box-arrow-in-left"></i>
-                  Çıkış
-                  {{this.user.FirstName}}
+              
+              <li class="nav-item" *ngIf="checkAdmin==true">
+                <a class="nav-link" type="button" routerLink="/admin">
+                  <i class="bi bi-person-circle"></i>
+                  Admin Panel
                 </a>
-              </li>
+              </li>     
+          </ul>
+          <ul class="nav navbar-nav ml-auto" *ngIf="chechToEmail()==true">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-user">
+                  <span class="badge badge-primary"></span>
+                </i>
+                {{this.user.firstName}} {{this.user.lastName}}</a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <a routerLink="/profile"  class="dropdown-item"><i class="fa fa-pencil fa-fw"></i> Ayarlar</a>
+                <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" (click)="logOut()"  ><i class="fa fa-sign-out"></i> Çıkış Yap</a>
+              </ul>
+            </li>
           </ul>
           
         </ul>
