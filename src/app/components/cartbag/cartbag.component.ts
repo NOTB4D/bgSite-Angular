@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -17,22 +18,24 @@ export class CartbagComponent implements OnInit {
   grandTotal:number=0;
   constructor(private cartService:CartService,
     private toastrservice:ToastrService,
-    private route:Router) { }
+    private route:Router,
+    private localstorageservice:LocalStorageService) { }
 
   ngOnInit(): void {
     this.cartItems=JSON.parse(localStorage.getItem('cartItems'));
-    
+    this.getcart()
   }
 
 
   getcart(){
-    
+    this.grandTotal=0;
     for(let item of this.cartItems)
     {
       this.subTotal=(item.product.unitPrice*item.quantity);
       this.grandTotal+=this.subTotal;
+      this.localstorageservice.set("grandtotal",this.grandTotal.toString());
     }
-    this.ngOnInit();
+    
    }
    removeFromCart(product:Product){
     this.cartService.removeFromCart(product);

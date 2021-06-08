@@ -29,6 +29,7 @@ paycardform:FormGroup
     this.getcart();
     this.getallcity();
     this.creatform();
+    
   }
 
   getcart(){
