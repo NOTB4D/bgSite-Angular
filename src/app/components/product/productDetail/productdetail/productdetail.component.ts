@@ -54,8 +54,8 @@ imageBasePath = environment.imageUrl;
     productName:product.productName,
     unitsInStock:product.unitsInStock,
     unitPrice:product.unitPrice,
-    description:"",
-    brandId:""
+    description:"dsf",
+    brandId:"2"
     })
     
   }

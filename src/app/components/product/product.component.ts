@@ -75,8 +75,8 @@ export class ProductComponent implements OnInit {
     productName:product.productName,
     unitsInStock:product.unitsInStock,
     unitPrice:product.unitPrice,
-    description:"",
-    brandId:""
+    description:"fdf",
+    brandId:"1"
     })
   }
 

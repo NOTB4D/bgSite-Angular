@@ -33,8 +33,8 @@ export class CartSummaryComponent implements OnInit {
       productName:product.productName,
       unitsInStock:product.unitsInStock,
       unitPrice:product.unitPrice,
-      description:"",
-      brandId:""});
+      description:product.description,
+      brandId:product.brandId});
       this.toastrservice.error("Ürün Sepetten Cıkartıldı",product.productName)
       this.ngOnInit();
   }

@@ -15,4 +15,6 @@ export interface paymentCard{
     City:string;
     Country:string;
     ContactName:string;
+    Price:string;
+    cartItems:CartItem[];
 }

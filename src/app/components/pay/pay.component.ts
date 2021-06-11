@@ -1,3 +1,5 @@
+import { CartItems } from './../../models/cartItems';
+import { LocalStorageService } from './../../services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CartItem } from 'src/app/models/cartItem';
@@ -14,26 +16,28 @@ import { PayService } from 'src/app/services/pay.service';
   styleUrls: ['./pay.component.css']
 })
 export class PayComponent implements OnInit {
-cartItems:CartItem[];
+cartItems:CartItem[]=[];
 cities:city[]=[];
-count:number;
+count:string;
 paymetcard:paymentCard;
 paycardform:FormGroup
-  constructor(private cartservice:CartService,
+
+  constructor(private localstorageservice:LocalStorageService,
     private toastrservice:ToastrService,
     private cityservice:CityService,
     private formbuilder:FormBuilder,
-    private payservice:PayService) { }
+    private payservice:PayService,
+    private cartservice:CartService) { }
 
   ngOnInit(): void {
     this.getcart();
     this.getallcity();
     this.creatform();
-    
+    this.count=this.localstorageservice.get("grandtotal");
   }
 
   getcart(){
-    this.cartItems=JSON.parse(localStorage.getItem('cartItems'));
+    this.cartItems=this.cartservice.list();
     }
 
     getallcity(){
@@ -42,7 +46,7 @@ paycardform:FormGroup
      })
     }
 creatform(){
-  this.paycardform=this.formbuilder.group({
+this.paycardform=this.formbuilder.group({
     CardHolderName:[""],
     CardNumber:[""],
     ExpireMonth:[""],
@@ -56,17 +60,22 @@ creatform(){
     RegistrationAddress:[""],
     City:[""],
     Country:[""],
+    Price:this.localstorageservice.get("grandtotal"),
   })
-
 }
 
+
 Addcard(){
-  let creditcarmodel = Object.assign(this.paycardform.value)
+  let creditcarmodel = Object.assign({},this.paycardform.value);
+  let cartItemsAll=JSON.parse(localStorage.getItem('cartItems'));
+  creditcarmodel.CartItems=cartItemsAll;
+  
+    console.log(creditcarmodel);
   this.payservice.addPay(creditcarmodel).subscribe(response =>{
     this.toastrservice.success(response.messages);
         this.ngOnInit();
-  console.log(creditcarmodel)      
+  console.log(response)      
   })
 }
-    
+   
 }

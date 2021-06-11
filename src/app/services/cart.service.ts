@@ -36,7 +36,7 @@ export class CartService {
     this.localstorageservice.set('cartItems', JSON.stringify(CartItems));
   }
 
-  list():CartItem[]{
+  list():any{
     return CartItems;
     // return JSON.parse(localStorage.getItem('cartItems'));
   }
