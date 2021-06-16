@@ -1,3 +1,4 @@
+import { CartSummaryComponent } from './../cart-summary/cart-summary.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -10,6 +11,7 @@ import { SearchService } from 'src/app/services/search.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
+  providers:[CartSummaryComponent],
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
@@ -25,7 +27,8 @@ export class ProductComponent implements OnInit {
     private productservice:ProductService,
     private toastrservice:ToastrService,
     private activatedRoute:ActivatedRoute,
-    private cartService:CartService) { }
+    private cartService:CartService,
+    private comp:CartSummaryComponent) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -68,9 +71,8 @@ export class ProductComponent implements OnInit {
       this.toastrservice.error("Hata","Ürün Stokta Yok")
     }
     this.toastrservice.success("Sepete eklendi",product.productName)
-    
     this.cartService.addtoCart({
-      productID:product.productId,
+    productID:product.productId,
     subCategoryId:product.subCategoryId,
     productName:product.productName,
     unitsInStock:product.unitsInStock,
@@ -78,6 +80,7 @@ export class ProductComponent implements OnInit {
     description:"fdf",
     brandId:"1"
     })
+   
   }
 
   

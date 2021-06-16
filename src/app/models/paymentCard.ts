@@ -1,3 +1,4 @@
+
 import { CartItem } from "./cartItem";
 
 export interface paymentCard{
@@ -17,4 +18,5 @@ export interface paymentCard{
     ContactName:string;
     Price:string;
     cartItems:CartItem[];
+    
 }

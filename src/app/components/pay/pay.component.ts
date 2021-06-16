@@ -1,4 +1,5 @@
-import { CartItems } from './../../models/cartItems';
+
+
 import { LocalStorageService } from './../../services/local-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -22,6 +23,7 @@ count:string;
 paymetcard:paymentCard;
 paycardform:FormGroup
 
+
   constructor(private localstorageservice:LocalStorageService,
     private toastrservice:ToastrService,
     private cityservice:CityService,
@@ -37,7 +39,8 @@ paycardform:FormGroup
   }
 
   getcart(){
-    this.cartItems=this.cartservice.list();
+    this.cartItems=JSON.parse(localStorage.getItem('cartItems'));
+   
     }
 
     getallcity(){
@@ -68,7 +71,7 @@ this.paycardform=this.formbuilder.group({
 Addcard(){
   let creditcarmodel = Object.assign({},this.paycardform.value);
   let cartItemsAll=JSON.parse(localStorage.getItem('cartItems'));
-  creditcarmodel.CartItems=cartItemsAll;
+  creditcarmodel.cartItems=cartItemsAll;
   
     console.log(creditcarmodel);
   this.payservice.addPay(creditcarmodel).subscribe(response =>{
