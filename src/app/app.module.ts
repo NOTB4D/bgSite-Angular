@@ -33,6 +33,7 @@ import { CartbagComponent } from './components/cartbag/cartbag.component';
 import { PayComponent } from './components/pay/pay.component';
 import { ProductImageAddComponent } from './components/Admin-Areas/product-image-add/product-image-add.component';
 import { ProductsearchComponent } from './components/product/productsearch/productsearch.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 
 
@@ -63,6 +64,7 @@ import { ProductsearchComponent } from './components/product/productsearch/produ
     PayComponent,
     ProductImageAddComponent,
     ProductsearchComponent,
+    ProfilComponent,
     
   ],
   imports: [

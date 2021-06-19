@@ -1,0 +1,128 @@
+<div class="container" >
+    <app-navi></app-navi>
+    <app-category></app-category>
+    <div class="container2" >
+<div class="row">
+    <div class="col-3" >
+        <div class="list-group shadow m-3" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+            <a class="list-group-item list-group-item-action " id="list-profile-list" data-bs-toggle="list" href="#list-adres" role="tab" aria-controls="adres">Adreslerim</a>
+            <a class="list-group-item list-group-item-action " id="list-siparis-list" data-bs-toggle="list" href="#list-siparis" role="tab" aria-controls="siparis">Siparişlerim</a>
+            
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                <div class="card-body">
+                    <form  [formGroup]="customerAddForm" >
+                        
+                       <h6 class="heading-small text-muted mb-4">Kullanıcı Bilgileri</h6>
+                       <div class="pl-lg-4">
+                           <div class="row">
+                               <div class="col-lg-6">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="input-first-name">Ad</label>
+                                    <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" name="Adi"  value="{{user.firstName}}">
+                                </div>
+                               </div>
+                               <div class="col-lg-6">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="input-last-name">Soyad</label>
+                                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" name="Soyadi"  value="{{user.lastName}}">
+                                </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-lg-6">
+                                   <div class="form-group">
+                                    <label class="form-control-label" for="input-email">Email address</label>
+                                    <input type="email" id="input-email" class="form-control form-control-alternative" name="Email" placeholder="Email address"  value="{{user.email}}">
+                                </div>
+                               </div>
+                           
+                               <div class="col-lg-6">
+                                
+                                   <div class="form-group focused">
+                                    <label class="form-control-label" for="input-TcNo">Tc Kmlik No</label>
+                                    <input type="text" id="input-TcNo" class="form-control form-control-alternative" placeholder="TcNo" formControlName="identityNumber" value="{{customer.identityNumber}}" >
+                                </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-lg-6">
+                                   <div class="form-group focused">
+                                       <label class="form-control-label" for="input-telefon">Telefon</label>
+                                       <input type="text" id="input-Telefon" class="form-control form-control-alternative" placeholder="Telefon" formControlName="phoneNumber" value="{{customer.phoneNumber}}" >
+                                   </div>
+                               </div>
+                               <div class="col-lg-6">
+                                   <div class="form-group focused">
+                                       <label class="form-control-label" for="input-birthDay">Doğum Tarihi</label>
+                                       <input type="date" id="input-birthDay" class="form-control form-control-alternative" placeholder="Doğum Tarihi" formControlName="birthDay" value="{{customer.birthDay}}" >
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-lg-6">
+                                   
+                               </div>
+                               <div class="col-lg-6">
+                                   <div class="form-group focused">
+                                       <button type="submit" *ngIf="dataLoaded == false" (click)="AddCustomer()" class="btn btn-secondary" style="margin-top:20px ">
+                                           Kaydet
+                                       </button>
+                                       <button type="submit" *ngIf="dataLoaded == true" (click)="UpdateCustomer()" class="btn btn-secondary" style="margin-top:20px ">
+                                        Güncelle
+                                    </button>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                        
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-siparis" role="tabpanel" aria-labelledby="list-siparis-list">
+             
+
+                    <table class="table">
+
+                        <tbody>
+                            <tr>
+                                <td>Ürün Adı</td>
+                                <td>Ürün Adeti</td>
+                                <td>Ürün Fiyatı</td>
+                                <td>Toplam</td>
+                            </tr>
+                          
+
+
+
+
+
+                        
+
+                        </tbody>
+
+                    </table>
+
+            </div>
+            <div class="tab-pane fade" id="list-adres" role="tabpanel" aria-labelledby="list-adres-list">
+             
+
+                <h3>Adres bilgilerim</h3>
+                <div class="card border-light mb-3 shadow m-3"  style="max-width: 18rem;">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Light card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+
+        </div>
+           
+        </div>
+    </div>
+</div>
+</div>

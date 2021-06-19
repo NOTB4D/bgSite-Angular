@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  instagram:string="assets/image/instagram.png"
+  adress:string="https://www.instagram.com/eserkucuker/"
   constructor() { }
 
   ngOnInit(): void {

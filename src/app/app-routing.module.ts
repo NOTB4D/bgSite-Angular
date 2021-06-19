@@ -20,6 +20,7 @@ import { ProductdetailComponent } from './components/product/productDetail/produ
 import { RegisterComponent } from './components/register/register.component';
 import { AdminGuard } from './guard/admin.guard';
 import { ProductsearchComponent } from './components/product/productsearch/productsearch.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"Cart",component:CartbagComponent},
+  {path:"profile",component:ProfilComponent},
   {path:"Pay",component:PayComponent,canActivate:[LoginGuard]},
   
 //AdminBase
