@@ -1,3 +1,4 @@
+import { productSearch } from './../../models/productSearch';
 import { CartSummaryComponent } from './../cart-summary/cart-summary.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -19,6 +20,7 @@ import { environment } from 'src/environments/environment';
 export class ProductComponent implements OnInit {
   subTitle:string = "";
   products:Product[]=[];
+  productsearch:productSearch[]=[];
   productImage:productImage[]=[];
   imageBasePath = environment.imageUrl;
   defaultImg="/images/default.jpg"
@@ -34,8 +36,7 @@ export class ProductComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{
       if(params["subcategoryId"]){
         this.getProductBysubcategoryId(params["subcategoryId"])
-        
-      }
+        }
     })
   
   }
@@ -54,17 +55,13 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  get filterText():string{
-    return this.searchService.filterData;
-  }
+ getProductBySearch(search:string){
+   this.productservice.getProductBySearch(search).subscribe(response =>{
+     this.productsearch=response.data;
+   })
+ }
 
-  set filterText(value: string){
-    this.searchService.filterData = value;
-  }
-  get searchResultText(){
-    let filterData = this.searchService.filterData;
-    return (filterData.length > 0)?"Search results for \"" + filterData + "\"":this.subTitle;
-  }
+  
 
   addtoCart(product:productImage){
     if(product.unitsInStock===0){

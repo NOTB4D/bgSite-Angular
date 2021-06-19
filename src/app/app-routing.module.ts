@@ -19,6 +19,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductdetailComponent } from './components/product/productDetail/productdetail/productdetail.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminGuard } from './guard/admin.guard';
+import { ProductsearchComponent } from './components/product/productsearch/productsearch.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path:"iletisim", component:IletisimComponent},
   {path:":categoryId",component:FirstComponent},
   {path:"productdetails/:productID",component:ProductdetailComponent},
+  {path:"productsearch/:search", component:ProductsearchComponent},
   
   
   

@@ -1,0 +1,39 @@
+<div class="container"  >
+    <app-navi></app-navi>
+    <app-category></app-category>
+    <div class="container2" >
+        <div class="row row-cols- row-cols-md-3 mb-3 text-center" *ngIf="dataLoaded == true">
+    
+            <div class="col"*ngFor="let product of productsearch" >
+                    <div class=" card m-3 shadow"  >
+                        <div class=" card-header">
+                            <h5>{{product.productName}}</h5>
+                        </div>
+                        <div class="card-body" >
+                            <img class="img-fluid" src="{{imageBasePath}}{{product.productImage}}"  routerLink="/productdetails/{{product.productId}}">
+                        </div>
+                        <div class="card-footer text-left ">
+                            <h5>Urun Fiyatı: {{product.unitPrice}}</h5>
+                            <h5>urun stok :{{product.unitsInStock}}</h5>
+                                <button (click)="addtoCart(product)"  class="btn btn-dark">
+                                    <i class="bi bi-cart-fill"></i>  Sepete ekle
+                                </button>
+                        </div>
+                    </div>
+            </div>
+    
+           
+    
+        </div>
+        <div class="row row-cols- row-cols-md-9 mb-9 " *ngIf="dataLoaded == false">
+    
+            <h5>Aradığınız Ürün Bulunamamaktadır</h5>
+    
+           
+    
+        </div>
+    
+    </div>
+    </div>
+    
+    

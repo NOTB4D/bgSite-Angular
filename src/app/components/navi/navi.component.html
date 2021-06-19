@@ -53,8 +53,8 @@
         </ul>
         <app-cart-summary></app-cart-summary>
         <div class="d-flex">
-          <input class="form-control me-2" id= "filtertext" type="search" placeholder="Ara" aria-label="Search">
-          <button class="btn btn-outline-secondary" type="submit">Ara</button>
+          <input class="form-control me-2" [(ngModel)]="search" id= "filtertext" type="search" placeholder="Ara" aria-label="Search">
+          <button class="btn btn-outline-secondary" [routerLink]="['/productsearch/',search]"  type="submit">Ara</button>
       </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { listResponseModel } from '../models/listResponModel';
 import { Product } from '../models/product';
 import { productdetails } from '../models/productdetails';
 import { productImage } from '../models/productImage';
+import { productSearch } from '../models/productSearch';
 import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
@@ -33,5 +34,10 @@ export class ProductService {
    getProductByProductId(productID:number):Observable<listResponseModel<productdetails>>{
      let newPath = this.apiUrl+"Products/getproductDetails?Id="+productID
      return this.httpClient.get<listResponseModel<productdetails>>(newPath)
+   }
+
+   getProductBySearch(search:string):Observable<listResponseModel<productSearch>>{
+     let newPath = this.apiUrl+"Products/GetProductBySearch?search="+search
+     return this.httpClient.get<listResponseModel<productSearch>>(newPath)
    }
 }

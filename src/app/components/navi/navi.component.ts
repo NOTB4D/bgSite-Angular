@@ -20,6 +20,7 @@ checkAdmin:boolean;
 email=this.localstorageservice.get("email");
 user:User= new User();
 admin:string;
+public search: string;
 
 
   constructor(

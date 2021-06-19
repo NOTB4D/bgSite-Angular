@@ -1,3 +1,4 @@
+import { productSearch } from './models/productSearch';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -31,6 +32,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CartbagComponent } from './components/cartbag/cartbag.component';
 import { PayComponent } from './components/pay/pay.component';
 import { ProductImageAddComponent } from './components/Admin-Areas/product-image-add/product-image-add.component';
+import { ProductsearchComponent } from './components/product/productsearch/productsearch.component';
 
 
 
@@ -60,6 +62,7 @@ import { ProductImageAddComponent } from './components/Admin-Areas/product-image
     CartbagComponent,
     PayComponent,
     ProductImageAddComponent,
+    ProductsearchComponent,
     
   ],
   imports: [
