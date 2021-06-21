@@ -4,35 +4,32 @@
     <div>
        <app-category></app-category>
     </div>
+    
        
-    <div class="content">
-        <div class="row">
+    <div class="content" >
+        <div class="row" >
             <div class="col-md-12 col-lg-8">
                 <div class="items">
                     <table class="table">
-                    <tbody>
+                        <tbody>
                         
-                            <tr *ngFor="let cartItem of cartItems">
+                                <tr *ngFor="let cartItem of cartItems">
+                                    <td>{{cartItem.product.productName}}</td>
+                                    <td>{{cartItem.product.unitPrice}}</td>
+                                    <td>
+                                        <i class="bi bi-plus-circle"(click)="addtoCart(cartItem.product)"></i>
+                                        {{cartItem.quantity}}
+                                        <i class="bi bi-dash-circle" (click)="removeFromCart(cartItem.product)"></i>
         
+                                    </td>
+                                    <td> {{cartItem.quantity*cartItem.product.unitPrice}} <i class="fa fa-try" aria-hidden="true"></i></td>
         
-                                <td>{{cartItem.product.productName}}</td>
-                                <td>{{cartItem.product.unitPrice}}</td>
-                                <td>
-                                    <i class="bi bi-plus-circle"(click)="addtoCart(cartItem.product)"></i>
-                                    {{cartItem.quantity}}
-                                    <i class="bi bi-dash-circle" (click)="removeFromCart(cartItem.product)"></i>
+                                </tr>
+                                <tr></tr>
+                                <tr></tr>
+                        </tbody>
         
-                                </td>
-                                <td> {{cartItem.quantity*cartItem.product.unitPrice}} <i class="fa fa-try" aria-hidden="true"></i></td>
-        
-                            </tr>
-                        <tr>
-                        </tr>
-                        <tr>
-                        </tr>
-                    </tbody>
-        
-                </table>
+                    </table>
                     
                     
                 </div>
@@ -46,7 +43,6 @@
             </div>
         </div> 
     </div>
-       
 </div>
 
 

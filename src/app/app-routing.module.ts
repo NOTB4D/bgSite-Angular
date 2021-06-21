@@ -10,7 +10,6 @@ import { CategoryupdateComponent } from './components/Admin-Areas/categoryupdate
 import { ProductAddComponent } from './components/Admin-Areas/product-add/product-add.component';
 import { ProductImageAddComponent } from './components/Admin-Areas/product-image-add/product-image-add.component';
 import { SubcategoryAddComponent } from './components/Admin-Areas/subcategory-add/subcategory-add.component';
-import { CartbagComponent } from './components/cartbag/cartbag.component';
 import { FirstComponent } from './components/first/first.component';
 import { IletisimComponent } from './components/iletisim/iletisim.component';
 import { LoginComponent } from './components/login/login.component';
@@ -21,13 +20,14 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdminGuard } from './guard/admin.guard';
 import { ProductsearchComponent } from './components/product/productsearch/productsearch.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import { CartbagComponent } from './components/cartbag/cartbag.component';
 
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:FirstComponent},
+  {path:"Cart",component:CartbagComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:"Cart",component:CartbagComponent},
   {path:"profile",component:ProfilComponent},
   {path:"Pay",component:PayComponent,canActivate:[LoginGuard]},
   
@@ -44,7 +44,7 @@ const routes: Routes = [
   {path:"admin/category-update/:categoryId",component:CategoryupdateComponent,canActivate:[AdminGuard]},
   {path:"admin/category-List",component:CategorylistComponent,canActivate:[AdminGuard]},
   {path:"admin/brand-List",component:BrandListComponent,canActivate:[AdminGuard]},
-//HomePage
+  //HomePage
   {path:"product/:subcategoryId",component:ProductComponent},
   {path:"iletisim", component:IletisimComponent},
   {path:":categoryId",component:FirstComponent},

@@ -21,7 +21,8 @@ cartItems:CartItem[]=[];
 cities:city[]=[];
 count:string;
 paymetcard:paymentCard;
-paycardform:FormGroup
+paycardform:FormGroup;
+grandTotal:number=0;
 
 
   constructor(private localstorageservice:LocalStorageService,
@@ -35,11 +36,17 @@ paycardform:FormGroup
     this.getcart();
     this.getallcity();
     this.creatform();
-    this.count=this.localstorageservice.get("grandtotal");
+    this.count=this.cartservice.getcart().toString();
+    this.load();
   }
 
-  getcart(){
+  load(){
     this.cartItems=JSON.parse(localStorage.getItem('cartItems'));
+    }
+
+  getcart(){
+    this.cartservice.getcart();
+    this.grandTotal=this.cartservice.getcart();
    
     }
 

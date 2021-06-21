@@ -10,6 +10,8 @@ import { Product } from '../models/product';
 })
 export class CartService {
 
+  subTotal:number=0;
+  grandTotal:number=0;
   constructor(private localstorageservice:LocalStorageService) { }
 
   addtoCart(product:Product){
@@ -41,5 +43,15 @@ export class CartService {
     // return JSON.parse(localStorage.getItem('cartItems'));
   }
 
-  
+  getcart(){
+    this.grandTotal=0;
+    for(let item of CartItems)
+    {
+      this.subTotal=(item.product.unitPrice*item.quantity);
+      this.grandTotal+=this.subTotal;
+      // this.localstorageservice.set("grandtotal",this.grandTotal.toString());
+      
+    }
+    return this.grandTotal;
+   }
 }

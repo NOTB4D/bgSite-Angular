@@ -1,3 +1,4 @@
+import { LoginGuard } from './guard/login.guard';
 import { productSearch } from './models/productSearch';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,6 +35,16 @@ import { PayComponent } from './components/pay/pay.component';
 import { ProductImageAddComponent } from './components/Admin-Areas/product-image-add/product-image-add.component';
 import { ProductsearchComponent } from './components/product/productsearch/productsearch.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AdressComponent } from './components/profil/adress/adress.component';
+import {MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {DemoMaterialModule} from './material-modul';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AdminGuard } from './guard/admin.guard';
+
+
 
 
 
@@ -65,6 +76,8 @@ import { ProfilComponent } from './components/profil/profil.component';
     ProductImageAddComponent,
     ProductsearchComponent,
     ProfilComponent,
+    AdressComponent,
+   
     
   ],
   imports: [
@@ -77,11 +90,22 @@ import { ProfilComponent } from './components/profil/profil.component';
     }),
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    DemoMaterialModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    JwtModule,
+    
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
-    SearchService
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true,},
+    SearchService,
+    LoginGuard,
+    AdminGuard,
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[AdressComponent],
 })
 export class AppModule { }

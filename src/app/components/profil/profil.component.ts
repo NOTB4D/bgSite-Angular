@@ -1,3 +1,5 @@
+import { AdressService } from './../../services/adress.service';
+import { AdressComponent } from './adress/adress.component';
 import { Customer } from './../../models/customer';
 import { UserService } from './../../services/user.service';
 import { FormBuilder, FormGroup,Validators  } from '@angular/forms';
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { CustomerService } from 'src/app/services/customer.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Adress } from 'src/app/models/adress';
 
 @Component({
   selector: 'app-profil',
@@ -14,23 +18,27 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProfilComponent implements OnInit {
 
-  userId:number=1;
+  
   email=this.localstorageservice.get("email");
   user:User = new User();
-  customer:Customer =new Customer;
+  customer:Customer =new Customer();
   customerAddForm:FormGroup
   userAddForm:FormGroup
   dataLoaded=false;
+  adress:Adress[]=[];
   constructor(private localstorageservice:LocalStorageService,
     private userservice:UserService,
     private formbuilder:FormBuilder,
     private customerservice:CustomerService,
-    private toasterservice:ToastrService) { }
+    private toasterservice:ToastrService,
+    private dialog:MatDialog ,
+    private adresservice:AdressService) { }
 
   ngOnInit(): void {
     this.getEmail();
     this.creatCustomerAddForm();
     this.creatUserrAddForm();
+    
   }
 
 
@@ -40,8 +48,16 @@ getEmail(){
         if(this.user.id){
            this.getcustomer(this.user.id)
            this.dataLoaded=true
+           this.getAdresByUserId(this.user.id);
+           
           }
           
+  })
+}
+
+getAdresByUserId(id:number){
+  this.adresservice.getAllAdressByUserId(id).subscribe(response=>{
+    this.adress=response.data
   })
 }
 
@@ -71,7 +87,7 @@ creatCustomerAddForm(){
 
 AddCustomer(){
   if(this.customerAddForm.valid){
-    let customermodel = Object.assign(this.customerAddForm.value)
+    let customermodel = Object.assign({},this.customerAddForm.value)
      let userId = this.user.id;
      customermodel.userId=userId
     this.customerservice.AddCustomer(customermodel).subscribe(response =>{
@@ -94,6 +110,11 @@ UpdateCustomer(){
       
     })
   }
+}
+
+
+onCreate(){
+this.dialog.open(AdressComponent);
 }
 
 }

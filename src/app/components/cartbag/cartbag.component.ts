@@ -13,30 +13,29 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cartbag.component.css']
 })
 export class CartbagComponent implements OnInit {
+
   cartItems:CartItem[];
   subTotal:number;
   grandTotal:number=0;
+  
   constructor(private cartService:CartService,
     private toastrservice:ToastrService,
     private route:Router,
     private localstorageservice:LocalStorageService) { }
 
   ngOnInit(): void {
-    this.cartItems=JSON.parse(localStorage.getItem('cartItems'));
-    this.getcart()
+    this.load();
+    this.getcart();
+  }
+   load(){
+  this.cartItems=JSON.parse(localStorage.getItem('cartItems'));
   }
 
-
   getcart(){
-    this.grandTotal=0;
-    for(let item of this.cartItems)
-    {
-      this.subTotal=(item.product.unitPrice*item.quantity);
-      this.grandTotal+=this.subTotal;
-      this.localstorageservice.set("grandtotal",this.grandTotal.toString());
-    }
-    
+   this.cartService.getcart();
+    this.grandTotal=this.cartService.getcart();
    }
+
    removeFromCart(product:Product){
     this.cartService.removeFromCart(product);
       this.toastrservice.error("Ürün Sepetten Cıkartıldı",product.productName)

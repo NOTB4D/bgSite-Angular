@@ -109,20 +109,29 @@
 
             </div>
             <div class="tab-pane fade" id="list-adres" role="tabpanel" aria-labelledby="list-adres-list">
-             
-
+                
                 <h3>Adres bilgilerim</h3>
-                <div class="card border-light mb-3 shadow m-3"  style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Light card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                 
+                <button type="submit"  class="btn btn-secondary" style="float:right" mat-raised-button (click)="onCreate()">Adres Ekle</button>
+                  
+                  <div class="row row-cols- row-cols-md-3 mb-3 ">
+                     <div class="col"*ngFor="let adres of adress" >
+                         <div class=" card m-3 shadow"  >
+                             <div class=" card-header">
+                                  <h5>{{adres.adressName}}</h5>
+                             </div>
+                         <div class="card-body" >
+                            <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
+                            <p class="card-text">{{adres.city}} / {{adres.country}} </p>
+                            <p class="card-text">{{adres.adres}}</p>
+                            <p class="card-text">Tc No: {{customer.identityNumber}}</p>
+                        </div>
                     </div>
-                  </div>
-
-        </div>
-           
+                </div>
+            </div>
+           </div>
         </div>
     </div>
 </div>
 </div>
+
