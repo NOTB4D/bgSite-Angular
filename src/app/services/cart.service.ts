@@ -39,8 +39,7 @@ export class CartService {
   }
 
   list():any{
-    return CartItems;
-    // return JSON.parse(localStorage.getItem('cartItems'));
+    return JSON.parse(localStorage.getItem('cartItems'));
   }
 
   getcart(){

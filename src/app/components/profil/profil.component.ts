@@ -55,6 +55,8 @@ getEmail(){
   })
 }
 
+
+
 getAdresByUserId(id:number){
   this.adresservice.getAllAdressByUserId(id).subscribe(response=>{
     this.adress=response.data

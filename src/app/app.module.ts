@@ -43,6 +43,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {DemoMaterialModule} from './material-modul';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AdminGuard } from './guard/admin.guard';
+import { OrdersComponent } from './components/profil/orders/orders.component';
 
 
 
@@ -77,6 +78,7 @@ import { AdminGuard } from './guard/admin.guard';
     ProductsearchComponent,
     ProfilComponent,
     AdressComponent,
+    OrdersComponent,
    
     
   ],

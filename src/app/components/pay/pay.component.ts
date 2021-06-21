@@ -70,7 +70,7 @@ this.paycardform=this.formbuilder.group({
     RegistrationAddress:[""],
     City:[""],
     Country:[""],
-    Price:this.localstorageservice.get("grandtotal"),
+    Price:this.cartservice.getcart()
   })
 }
 

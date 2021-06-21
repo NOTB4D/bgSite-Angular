@@ -1,0 +1,28 @@
+
+             
+
+    <table class="table">
+
+        <tbody>
+            <tr>
+                <td>Ürün Adı</td>
+                <td>Ürün Adeti</td>
+                <td>Ürün Fiyatı</td>
+                <td>Toplam</td>
+            </tr>
+            
+
+                <tr *ngFor="let order of orders">
+
+
+                    <td>{{order.productName}}</td>
+                    <td>{{order.quantity}}</td>
+                    <td>{{order.price}}</td>
+                    <td>{{order.price * order.quantity}}</td>
+
+                </tr>
+        </tbody>
+
+    </table>
+
+

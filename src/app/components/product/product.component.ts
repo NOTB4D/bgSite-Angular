@@ -1,18 +1,18 @@
 import { productSearch } from './../../models/productSearch';
-import { CartSummaryComponent } from './../cart-summary/cart-summary.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
-
 import { productImage } from 'src/app/models/productImage';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { SearchService } from 'src/app/services/search.service';
 import { environment } from 'src/environments/environment';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { CartItem } from 'src/app/models/cartItem';
 
 @Component({
-  providers:[CartSummaryComponent],
+ 
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
   products:Product[]=[];
   productsearch:productSearch[]=[];
   productImage:productImage[]=[];
+  cartItems:CartItem[];
   imageBasePath = environment.imageUrl;
   defaultImg="/images/default.jpg"
 
@@ -30,7 +31,7 @@ export class ProductComponent implements OnInit {
     private toastrservice:ToastrService,
     private activatedRoute:ActivatedRoute,
     private cartService:CartService,
-    private comp:CartSummaryComponent) { }
+    private localstorageservice:LocalStorageService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -38,7 +39,7 @@ export class ProductComponent implements OnInit {
         this.getProductBysubcategoryId(params["subcategoryId"])
         }
     })
-  
+   
   }
 
   getProduct(){
@@ -63,7 +64,7 @@ export class ProductComponent implements OnInit {
 
   
 
-  addtoCart(product:productImage){
+  addtoCart(product:productImage){ 
     if(product.unitsInStock===0){
       this.toastrservice.error("Hata","Ürün Stokta Yok")
     }
@@ -77,7 +78,7 @@ export class ProductComponent implements OnInit {
     description:"fdf",
     brandId:"1"
     })
-   
+  
   }
 
   
