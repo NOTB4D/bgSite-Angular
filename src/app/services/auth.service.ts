@@ -9,6 +9,7 @@ import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { Claims } from '../models/claims';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,12 @@ import { Claims } from '../models/claims';
 export class AuthService {
 yetki:string;
   apiUrl = "https://localhost:44366/api/";
+  currentUserId: number;
+  currentRoles: string;
+  jwtHelperService: JwtHelperService = new JwtHelperService()
+
   constructor(private httpClient:HttpClient,
-    private localstorageservice:LocalStorageService) { }
+    private localstorageservice:LocalStorageService) { this.setUserStats() }
 
   login(loginModel: LoginModel){
    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"Auth/login",loginModel)
@@ -26,6 +31,8 @@ yetki:string;
   register(registerModel:RegisterModel){
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"Auth/register",registerModel)
   }
+
+
   isAuthenticated(){
     if(localStorage.getItem("token")){
       return true;
@@ -33,6 +40,45 @@ yetki:string;
       return false;
     }
   }
+
+  setCurrentUserId() {
+    var decoded = this.getDecodedToken()
+    var propUserId = Object.keys(decoded).filter(x => x.endsWith("/nameidentifier"))[0];
+    this.currentUserId = Number(decoded[propUserId]);
+  }
+
+  setRoles() {
+    var decoded = this.getDecodedToken()
+    var propUserId = Object.keys(decoded).filter(x => x.endsWith("/role"))[0];
+    this.currentRoles = String(decoded[propUserId]);
+  }
+
+  getCurrentRoles(): string {
+    return this.currentRoles
+  }
+
+  getCurrentUserId(): number {
+    return this.currentUserId
+  }
+  
+  getDecodedToken() {
+    try {
+      return this.jwtHelperService.decodeToken(this.localstorageservice.getToken());
+    }
+    catch (Error) {
+      return null;
+    }
+  }
+
+  logout() {
+    this.localstorageservice.remove("token");
+  }
+  loggedIn(): boolean {
+    let isExpired = this.jwtHelperService.isTokenExpired(this.localstorageservice.getToken());
+    return !isExpired;
+  }
+
+
 
   isadmin(){
     this.yetki=this.localstorageservice.get("yetki");
@@ -49,4 +95,11 @@ yetki:string;
    return this.httpClient.get<SingleResponseModel<Claims>>(newPath);
   }
 
+
+  async setUserStats() {
+    if (this.loggedIn()) {
+      this.setCurrentUserId()
+      this.setRoles()
+    }
+  }
 }

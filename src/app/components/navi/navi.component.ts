@@ -37,7 +37,9 @@ public search: string;
  
 load(){
   this.check = this.authservice.isAuthenticated();
-  this.checkAdmin=this.authservice.isadmin();
+  if(this.authservice.getCurrentRoles()=== "Admin" ){ 
+  this.checkAdmin=true;
+  }
   this.getEmail();
   this.chechToEmail();
 }
@@ -61,8 +63,6 @@ getEmail(){
       this.user=response;
       this.authservice.getClaims(this.user.id).subscribe(response=>{
         if(response){
-          this.admin=response.data.name;
-          this.localstorageservice.set("yetki",response.data.name);
           this.localstorageservice.set("Id",this.user.id.toString());
         }
       })

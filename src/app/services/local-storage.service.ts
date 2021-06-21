@@ -26,4 +26,7 @@ export class LocalStorageService {
   clean(){
     this.localStorege.clear();
   }
+  getToken(){
+    return localStorage.getItem("token")
+  }
 }

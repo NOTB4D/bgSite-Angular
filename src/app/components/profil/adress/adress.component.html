@@ -1,0 +1,77 @@
+ 
+<div class="card-body">
+  <form [formGroup]="adressAddForm"  >
+     <h6 class="heading-small text-muted mb-4">Adres Bilgileri</h6>
+     <div class="pl-lg-4">
+         <div class="row">
+             <div class="col-lg-6">
+              <div class="form-group focused">
+                <p>
+                  <mat-form-field appearance="legacy">
+                    <mat-label>Adres Adı</mat-label>
+                    <input matInput placeholder="Adres Adı" formControlName="adressName" > 
+                  </mat-form-field>
+              </p>
+              </div>
+             </div>
+             <div class="col-lg-6">
+              <div class="form-group focused">
+                <p>
+                  <mat-form-field appearance="legacy">
+                    <mat-label>Adresiniz</mat-label>
+                    <input matInput placeholder="Adresiniz" formControlName="adres">
+                  </mat-form-field>
+              </p>
+              </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-lg-6">
+                 <div class="form-group">
+                  <p>
+                    <mat-form-field appearance="legacy">
+                      <mat-label>Posta kodu</mat-label>
+                      <input matInput placeholder="Posta kodu" formControlName="zipCode"> 
+                    </mat-form-field>
+                </p>
+              </div>
+             </div>
+             <div class="col-lg-6">
+              <div class="form-group focused">
+                  <p>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Şehir</mat-label>
+                      <mat-select formControlName="city">
+                        <mat-option value="">Şehirler...</mat-option>
+                        <mat-option value="{{city.city_name}}" *ngFor="let city of cities">{{city.city_name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </p>
+              </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-lg-6">
+                 <div class="form-group focused">
+                  <p>
+                    <mat-form-field appearance="legacy">
+                      <mat-label>Ülke</mat-label>
+                      <input matInput placeholder="Ülke" formControlName="country">
+                    </mat-form-field>
+                </p>
+                 </div>
+             </div>
+             <div class="col-lg-6">
+                 <div class="form-group focused" style="margin-top:20px ">
+                  <button type="submit"  (click)="addAdress()" class="btn btn-secondary"  >
+                    Kaydet
+                </button>
+                <button type="submit" (click)="onclose()" class="btn btn-secondary" style="margin-left:20px">
+                  Cıkış
+              </button>
+                 </div>
+             </div>
+         </div>
+     </div>
+  </form>
+</div>
