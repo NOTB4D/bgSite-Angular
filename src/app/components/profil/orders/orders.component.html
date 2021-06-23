@@ -5,6 +5,8 @@
 
         <tbody>
             <tr>
+                <td>Sipariş No</td>
+                <td>Sipariş Durumu</td>
                 <td>Ürün Adı</td>
                 <td>Ürün Adeti</td>
                 <td>Ürün Fiyatı</td>
@@ -15,6 +17,8 @@
                 <tr *ngFor="let order of orders">
 
 
+                    <td>{{order.orderNumber}}</td>
+                    <td>{{order.massage}}</td>
                     <td>{{order.productName}}</td>
                     <td>{{order.quantity}}</td>
                     <td>{{order.price}}</td>
